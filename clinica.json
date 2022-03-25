@@ -1,0 +1,126 @@
+{
+    "clinicas":[{
+        "id":1,
+        "clinica":"Seus Dentes São Nossos",
+        "localizacao":{
+            "cidade":"Dentinópolis",
+            "estado":"DT",
+            "pais":"BR",
+            "endereco":"Rua dos Dentes Branquinhos",
+            "numero":"206A BL5 SL8",
+            "cep":"12345-789"
+        },
+        "contatos":[
+            {
+                "nome":"Recepção",
+                "telefones":[
+                    "(11)4040-1324",
+                    "0800-5050-31"
+                ],
+                "emails":[
+                    "recepcao@seudentemepertence.com",
+                    "agendamentos@seudentemepertence.com"
+                ],
+                "pagers":[]
+            },
+            {
+                "nome":"SAC",
+                "telefones":[
+                    "0800-0010-00"
+                ],
+                "emails":[
+                "sac@seudentemepertence.com"
+                ],
+                "pagers":[]
+            },
+            {
+            "nome":"Diretoria",
+            "telefones":[],
+            "emails":[],
+            "pagers":[
+                "11 225958-5"
+            ]
+            }
+        ],
+        "dentistas":[
+            {
+                "identificacao":1001,
+                "nome":"Dr Fulano do motorzin",
+                "ativo":true
+            },
+            {
+                "identificacao":1002,
+                "nome":"Dr Ciclano das Montanhas",
+                "ativo":true
+            },
+            {
+                "identificacao":1003,
+                "nome":"Dra Emengarda",
+                "ativo":false
+            },
+            {
+                "identificacao":1004,
+                "nome":"Dr Chapatin",
+                "ativo":true
+            }
+        ],
+        "agendamentos":[
+            {
+                "data_hora":"2022-03-25 08:00",
+                "dentistas_disponiveis":[1001,1004],
+                "dentistas_ocupados":[1002]
+            },
+            {
+                "data_hora":"2022-03-25 10:00",
+                "dentistas_disponiveis":[1004],
+                "dentistas_ocupados":[1001,1002]
+            },
+            {
+                "data_hora":"2022-03-25 15:00",
+                "dentistas_disponiveis":[],
+                "dentistas_ocupados":[1001,1002,1004]
+            },
+            {
+                "data_hora":"2022-03-26 07:00",
+                "dentistas_disponiveis":[1002],
+                "dentistas_ocupados":[1001,1004]
+            },
+            {
+                "data_hora":"2022-03-27 11:00",
+                "dentistas_disponiveis":[1001,1002,1004],
+                "dentistas_ocupados":[]
+            }
+        ],
+        "pacientes":[
+            {
+                "id":2001,
+                "nome":"Geraldo Maisdela",
+                "sexo":"M",
+                "idade":50,
+                "estado_civil":"C"
+            },
+            {
+                "id":2002,
+                "nome":"Clara Dark",
+                "sexo":"F",
+                "idade":20,
+                "estado_civil":"S"
+            },
+            {
+                "id":2003,
+                "nome":"Donna Lince",
+                "sexo":"F",
+                "idade":28,
+                "estado_civil":"C"
+            },
+            {
+                "id":2005,
+                "nome":"Otta Pessoa",
+                "sexo":"F",
+                "idade":80,
+                "estado_civil":"S"
+            }
+        ]
+    }]
+  
+}

@@ -1,0 +1,7 @@
+.table {
+    border-bottom: 0;
+}
+
+.table>:not(caption)>*>*{
+    border-bottom-width:0
+}
