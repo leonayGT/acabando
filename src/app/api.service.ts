@@ -26,7 +26,6 @@ export class ApiService {
     .toPromise()
     .then((data:any) => data[0].agendamentos)
   }
-
 }
 
 

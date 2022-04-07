@@ -10,40 +10,43 @@
 
 <div class="container-fluid">
     <div class="row my-4">
-        <div class="col-md-5">
+        <div class="col-md-12">
+            <h4 class="mb-4">Selecione o Dentista</h4>
             <select name="" id="" (change)="getAllDestistas($event.target)">
                 <option value="">Todos</option>
                 <option *ngFor="let dentista of dentistas" value="{{dentista.identificacao}}" [disabled]="dentista.ativo?false:true">
                   <span>{{ dentista.nome }}</span>  
                 </option>
             </select>
+            <table border="1" class="table mt-4">
+                <thead>
+                    <tr>
+                    <th scope="col" style="width: 172px;">
+                        Dias disponiveis
+                    </th>
+                    <th scope="col">
+                        Dentistas
+                    </th>
+                   </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let dia of agendamentos;let i = index" class="m-4" style="border: 1px dashed black; width: 100%; height: 80px;">
+                        <td  class="table-success" >
+                            {{dia.data_hora | date: 'dd/MM/yy HH:mm'}}
+                        </td>
+                        <td *ngFor="let dentista of dia.dentistas_disponiveis" >
+                            <button type="button" class="btn btn-outline-primary" (click)="getIdDentista(dentista,dia,i)">{{obterDentista(dentista)}}</button>
+                       </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <div class="col-md-6">
-         <table border="1" class="table" >
-             <thead>
-                 <tr>
-                 <th scope="col" style="width: 172px;">
-                     Dias disponiveis
-                 </th>
-                 <th scope="col">
-                     dentistas
-                 </th>
-                </tr>
-             </thead>
-             <tbody>
-                 <tr *ngFor="let dia of agendamentos" class="m-4" style="border: 1px dashed black; width: 100%; height: 80px;">
-                     <td  class="table-success" >
-                         {{dia.data_hora | date: 'dd/MM/yy HH:mm'}}
-                     </td>
-                     <td *ngFor="let dentista of dia.dentistas_disponiveis" >
-                         <button type="button" class="btn btn-outline-primary" (click)="getIdDentista(dentista,dia)">{{obterDentista(dentista)}}</button>
-                    </td>
-                 </tr>
-             </tbody>
-         </table>
+      
         </div>
     </div>
 </div>
-<app-cadastro [current]="idDentista" [dentistas]="dentistas" [diaAgendado]="diaAgendamento" [idAtual]="agendamentoID" [concluido]="naoConcluido"></app-cadastro>
+<app-cadastro [current]="idDentista" [dentistas]="dentistas"  [diaAgendado]="diaAgendamento" [idAtual]="agendamentoID" [index]="index" [concluido]="naoConcluido" 
+></app-cadastro>
 </body>
 

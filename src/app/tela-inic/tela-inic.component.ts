@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 
@@ -13,26 +14,26 @@ export class TelaInicComponent implements OnInit {
   public allID: number = 0
   public agendamentos:Array<any> = new Array()
   public dentistasTeste:Array<any> = new Array()
+  public dentistasOcu:Array<any> = new Array()
+  
   @Input() public idDentista:number = 0
   @Input() public diaAgendamento:any 
   @Input() public dentistasDisponiveis:number = 0
   @Input() public agendamentoID:any
-  @Input() public naoConcluido:boolean = false
+  @Input() public naoConcluido:boolean = false 
+  @Input() public index:number = 0
+  public agendamentoCancel: any
 
-  getIdDentista(id:any, dia:any) {
-    this.idDentista = id
-    console.log(this.idDentista)
-    this.diaAgendamento = dia.data_hora
-    console.log(this.diaAgendamento)
-    this.agendamentoID = dia.dentistas_disponiveis
-    console.log(this.agendamentoID)
+  getIdDentista(id:number, dia:any,i:number) {
+    this.idDentista = id 
+    this.diaAgendamento = dia.data_hora  
+    this.agendamentoID = dia
     this.naoConcluido = false
-    console.log(this.naoConcluido)
+    console.log(this.idDentista);
+    
+    this.index = i
   }
 
-  getIdenAgendamento() {
-    this.agendamentoID = this.agendamentos
-  } 
 
   getClinicaTotal() {   
     this.clinica.getLista().then((cli:any) =>{
@@ -62,10 +63,12 @@ export class TelaInicComponent implements OnInit {
       }      
   }
 
+
+
+
  obterDentista(id:number):any {    
     let nome = this.dentistas.find((d)=> {
    // console.log(d)
-
     return d.identificacao == id ? true : false      
     })
     return nome.nome
@@ -75,5 +78,6 @@ export class TelaInicComponent implements OnInit {
 
   ngOnInit(): void {
     this.getClinicaTotal()
+ 
   }
 }
